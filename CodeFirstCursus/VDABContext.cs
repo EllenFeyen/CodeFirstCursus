@@ -19,7 +19,8 @@ namespace CodeFirstCursus
         {
             modelBuilder.Entity<KlassikaleCursus>().Map(m => m.MapInheritedProperties());
             modelBuilder.Entity<ZelfstudieCursus>().Map(m => m.MapInheritedProperties());
-            modelBuilder.Entity<Instructeur>().HasMany(i => i.Verantwoordelijkheden).WithMany(v => v.Instructeurs)
+            modelBuilder.Entity<Instructeur>().HasMany(i => i.Verantwoordelijkheden)
+                .WithMany(v => v.Instructeurs)
                 .Map(c => c.ToTable("InstructeurVerantwoordelijkheden")
                 .MapLeftKey("VerantwoorlijkheidID").MapRightKey("InstructeurNr"));
         }
